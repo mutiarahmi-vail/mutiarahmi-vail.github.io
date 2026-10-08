@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mutia Rahmi | Information Technology Student</title>
+
+    <meta name="description" content="Personal portfolio of Mutia Rahmi, an Information Technology student at Universitas Teuku Umar.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #f4efe7;
+            --surface: #faf8f4;
+            --dark: #1b1917;
+            --dark-soft: #27231f;
+            --brown: #94785c;
+            --brown-light: #cdb89d;
+            --text: #2d2925;
+            --muted: #756e67;
+            --border: #ded6cb;
+            --white: #fffdf9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(27, 25, 23, 0.94);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--white);
+            font-family: "Playfair Display", serif;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e8e1d8;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--brown-light);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            padding: 150px 30px 90px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-container {
+            max-width: 1100px;
+            width: 100%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .small-title {
+            color: var(--brown);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(55px, 8vw, 95px);
+            line-height: 0.95;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .university {
+            font-size: 19px;
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .description {
+            max-width: 560px;
+            color: var(--muted);
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-dark {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        .btn-dark:hover {
+            transform: translateY(-3px);
+            background: var(--brown);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--dark);
+            color: var(--dark);
+        }
+
+        .btn-outline:hover {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        /* DECORATIVE CARD */
+        .hero-card {
+            min-height: 430px;
+            border-radius: 30px;
+            background: var(--dark-soft);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 35px;
+            box-shadow: 0 25px 60px rgba(27, 25, 23, 0.15);
+        }
+
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: var(--brown);
+            top: -90px;
+            right: -70px;
+            opacity: 0.8;
+        }
+
+        .hero-card::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: var(--brown-light);
+            bottom: -80px;
+            left: -60px;
+            opacity: 0.35;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+        }
+
+        .card-content span {
+            font-size: 13px;
+            color: var(--brown-light);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .card-content h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            line-height: 1.1;
+            margin-top: 12px;
+        }
+
+        .card-content p {
+            margin-top: 15px;
+            color: #cfc7bd;
+            font-size: 14px;
+        }
+
+        /* GENERAL SECTION */
+        .section {
+            padding: 110px 30px;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-label {
+            color: var(--brown);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(40px, 6vw, 65px);
+            color: var(--dark);
+            margin-bottom: 45px;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 400px;
+            border-radius: 30px;
+            background:
+                radial-gradient(circle at 70% 25%, var(--brown-light) 0 18%, transparent 19%),
+                radial-gradient(circle at 25% 75%, var(--brown) 0 15%, transparent 16%),
+                linear-gradient(135deg, #e7ddd0, #c7b49d);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image-text {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            right: 25px;
+            padding: 20px;
+            border-radius: 18px;
+            background: rgba(255, 253, 249, 0.85);
+            backdrop-filter: blur(8px);
+            color: var(--dark);
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .about-text strong {
+            color: var(--dark);
+        }
+
+        /* EDUCATION */
+        .education-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+        }
+
+        .education-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px 30px;
+            transition: 0.3s;
+        }
+
+        .education-item:hover {
+            transform: translateY(-4px);
+            border-color: var(--brown-light);
+            box-shadow: 0 15px 30px rgba(27, 25, 23, 0.08);
+        }
+
+        .education-item h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .education-item p {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        .contact .section-label {
+            color: var(--brown-light);
+        }
+
+        .contact .section-title {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .contact-description {
+            color: #cfc7bd;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            border: 1px solid #514941;
+            padding: 15px 24px;
+            border-radius: 30px;
+            color: var(--white);
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            background: var(--brown);
+            border-color: var(--brown);
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            border-top: 1px solid #39332e;
+            padding: 25px 30px;
+            text-align: center;
+            color: #8e867d;
+            font-size: 13px;
+        }
+
+        /* ANIMATION */
+        .fade-up {
+            animation: fadeUp 1s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            .nav-container {
+                padding: 17px 20px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 130px 20px 70px;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+
+            .hero-card {
+                min-height: 330px;
+            }
+
+            .section {
+                padding: 80px 20px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image {
+                min-height: 330px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .hero h1 {
+                font-size: 50px;
+            }
+
+            .hero-card {
+                min-height: 300px;
+            }
+
+            .card-content h2 {
+                font-size: 34px;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+                Mutia Rahmi
+            </a>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#education">Education</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+
+        <div class="hero-container">
+
+            <div class="hero-content fade-up">
+
+                <p class="small-title">
+                    Information Technology Student
+                </p>
+
+                <h1>
+                    Mutia<br>
+                    Rahmi.
+                </h1>
+
+                <p class="university">
+                    Universitas Teuku Umar
+                </p>
+
+                <p class="description">
+                    I'm currently learning, growing, and exploring
+                    the world of technology through university,
+                    academic experiences, and everyday curiosity.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#about" class="btn btn-dark">
+                        About Me
+                    </a>
+
+                    <a href="#contact" class="btn btn-outline">
+                        Let's Connect
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <div class="card-content">
+
+                    <span>
+                        Personal Portfolio
+                    </span>
+
+                    <h2>
+                        Learning.<br>
+                        Building.<br>
+                        Growing.
+                    </h2>
+
+                    <p>
+                        A small space to introduce myself
+                        and share my journey in technology.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+
+        <div class="section-container">
+
+            <p class="section-label">
+                About Me
+            </p>
+
+            <h2 class="section-title">
+                A little about me.
+            </h2>
+
+            <div class="about-grid">
+
+                <div class="about-image">
+
+                    <div class="about-image-text">
+                        A work in progress,
+                        always learning.
+                    </div>
+
+                </div>
+
+
+                <div class="about-text">
+
+                    <p>
+                        Hi, I'm <strong>Mutia</strong>.
+                    </p>
+
+                    <p>
+                        I am an Information Technology student
+                        at <strong>Universitas Teuku Umar</strong>
+                        and an alumna of
+                        <strong>SMA Negeri 1 Calang, Aceh Jaya</strong>.
+                    </p>
+
+                    <p>
+                        I'm currently learning and developing
+                        my foundation in information technology
+                        through university and academic experiences.
+                    </p>
+
+                    <p>
+                        I want to keep learning and exploring
+                        the world of technology, especially in
+                        programming, web development, databases,
+                        computer networks, and the Internet of Things.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+
+        <div class="section-container">
+
+            <p class="section-label">
+                Education
+            </p>
+
+            <h2 class="section-title">
+                My educational journey.
+            </h2>
+
+            <div class="education-list">
+
+                <div class="education-item">
+
+                    <h3>
+                        S-1 Information Technology
+                    </h3>
+
+                    <p>
+                        Universitas Teuku Umar · 2025 – Present
+                    </p>
+
+                </div>
+
+
+                <div class="education-item">
+
+                    <h3>
+                        SMA Negeri 1 Calang
+                    </h3>
+
+                    <p>
+                        Graduated 2025
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+
+        <div class="section-container">
+
+            <p class="section-label">
+                Contact
+            </p>
+
+            <h2 class="section-title">
+                Let's connect.
+            </h2>
+
+            <p class="contact-description">
+                You can find me through the following platforms.
+            </p>
+
+
+            <div class="contact-links">
+
+                <a
+                    href="https://github.com/mutiarahmi-vail"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-link">
+                    GitHub ↗
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/mutia-rahmi-83ba8638a/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-link">
+                    LinkedIn ↗
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        © 2026 Mutia Rahmi · Information Technology Student
+
+    </footer>
+
+</body>
+</html>
